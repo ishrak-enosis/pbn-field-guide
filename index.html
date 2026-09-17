@@ -1,0 +1,1369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Onboarding reference on Practice by Numbers: the company, every product suite, how the PMS integration works, the dental software market, and a five-week learning path.">
+<title>Practice by Numbers Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --ground: #F5F8F7;
+    --surface: #FFFFFF;
+    --surface-2: #EDF3F1;
+    --ink: #14201E;
+    --ink-mid: #3C4C49;
+    --ink-soft: #64756F;
+    --accent: #0D6B60;
+    --accent-deep: #084A43;
+    --accent-wash: #E2EFEC;
+    --flag: #9C4514;
+    --flag-wash: #F7EBE3;
+    --rule: #D7E2DF;
+    --rule-strong: #B9C9C5;
+    --shadow: 0 1px 2px rgba(20,32,30,.05), 0 8px 24px -16px rgba(20,32,30,.18);
+
+    --f-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0D1514;
+      --surface: #141F1D;
+      --surface-2: #1A2725;
+      --ink: #E7EFEC;
+      --ink-mid: #BDCCC8;
+      --ink-soft: #8FA29E;
+      --accent: #58C4B2;
+      --accent-deep: #8FDCCD;
+      --accent-wash: #123029;
+      --flag: #E29A57;
+      --flag-wash: #2E2114;
+      --rule: #263431;
+      --rule-strong: #374844;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.6);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground: #0D1514;
+    --surface: #141F1D;
+    --surface-2: #1A2725;
+    --ink: #E7EFEC;
+    --ink-mid: #BDCCC8;
+    --ink-soft: #8FA29E;
+    --accent: #58C4B2;
+    --accent-deep: #8FDCCD;
+    --accent-wash: #123029;
+    --flag: #E29A57;
+    --flag-wash: #2E2114;
+    --rule: #263431;
+    --rule-strong: #374844;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.6);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 0;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  /* ---------- index rail ---------- */
+
+  .rail {
+    border-right: 1px solid var(--rule);
+    padding: 40px 28px 64px 28px;
+  }
+  .rail-inner {
+    position: sticky;
+    top: 32px;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: 10px;
+    margin-right: -10px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule-strong) transparent;
+  }
+  .rail-inner::-webkit-scrollbar { width: 7px; }
+  .rail-inner::-webkit-scrollbar-track { background: transparent; }
+  .rail-inner::-webkit-scrollbar-thumb {
+    background: var(--rule-strong);
+    border-radius: 4px;
+  }
+  .rail-inner::-webkit-scrollbar-thumb:hover { background: var(--ink-soft); }
+  .rail-mark {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+  .rail nav { display: flex; flex-direction: column; gap: 1px; }
+  .rail a {
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 6px;
+    align-items: baseline;
+    padding: 5px 0;
+    color: var(--ink-mid);
+    text-decoration: none;
+    font-size: 13.5px;
+    line-height: 1.35;
+    border-bottom: 1px solid transparent;
+  }
+  .rail a span.n {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    color: var(--ink-soft);
+  }
+  .rail a:hover { color: var(--accent); }
+  .rail a:hover span.n { color: var(--accent); }
+  .rail a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .rail .group {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 22px 0 6px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  .rail .group:first-of-type { margin-top: 0; border-top: 0; padding-top: 0; }
+
+  /* ---------- main column ---------- */
+
+  main { padding: 40px 48px 120px 48px; min-width: 0; }
+  .col { max-width: 70ch; }
+
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: clamp(2.1rem, 4.4vw, 3.1rem);
+    line-height: 1.06;
+    letter-spacing: -.02em;
+    text-wrap: balance;
+    margin: 14px 0 0;
+  }
+  .standfirst {
+    font-family: var(--f-display);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--ink-mid);
+    max-width: 60ch;
+    margin: 18px 0 0;
+  }
+  .byline {
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid var(--rule);
+    max-width: 70ch;
+  }
+
+  h2 {
+    font-family: var(--f-display);
+    font-weight: 500;
+    font-size: 1.85rem;
+    line-height: 1.18;
+    letter-spacing: -.014em;
+    text-wrap: balance;
+    margin: 0 0 4px;
+  }
+  h3 {
+    font-family: var(--f-body);
+    font-weight: 600;
+    font-size: 1.02rem;
+    letter-spacing: -.005em;
+    margin: 30px 0 6px;
+  }
+  h4 {
+    font-family: var(--f-mono);
+    font-weight: 500;
+    font-size: 11.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 26px 0 8px;
+  }
+
+  section { padding-top: 56px; scroll-margin-top: 24px; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    border-top: 2px solid var(--ink);
+    padding-top: 14px;
+    margin-bottom: 20px;
+    max-width: 70ch;
+  }
+  .sec-head .num {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    color: var(--accent);
+    padding-top: 6px;
+  }
+
+  p { margin: 0 0 14px; max-width: 70ch; }
+  a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  ul, ol { margin: 0 0 16px; padding-left: 20px; max-width: 70ch; }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--ink-soft); }
+
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+
+  code {
+    font-family: var(--f-mono);
+    font-size: .875em;
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* ---------- fact strip ---------- */
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 32px 0 0;
+    max-width: 70ch;
+  }
+  .facts div { background: var(--surface); padding: 14px 16px; }
+  .facts dt {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 5px;
+  }
+  .facts dd {
+    margin: 0;
+    font-family: var(--f-display);
+    font-size: 1.28rem;
+    line-height: 1.15;
+    font-variant-numeric: tabular-nums;
+  }
+  .facts dd small {
+    display: block;
+    font-family: var(--f-body);
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+    margin-top: 3px;
+  }
+
+  /* ---------- callouts ---------- */
+
+  .note {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-wash);
+    padding: 14px 18px;
+    margin: 22px 0;
+    max-width: 70ch;
+    font-size: 15px;
+  }
+  .note p:last-child { margin-bottom: 0; }
+  .note .lab {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    display: block;
+    margin-bottom: 5px;
+  }
+  .note.warn { border-left-color: var(--flag); background: var(--flag-wash); }
+  .note.warn .lab { color: var(--flag); }
+
+  /* ---------- tables ---------- */
+
+  .scroll { overflow-x: auto; margin: 18px 0 24px; max-width: 100%; }
+  table {
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 100%;
+    background: var(--surface);
+  }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  thead th {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.mono, th.mono { font-family: var(--f-mono); font-size: 13px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  /* ---------- module list ---------- */
+
+  .modules { display: flex; flex-direction: column; gap: 0; max-width: 70ch; margin: 20px 0 8px; }
+  .mod {
+    display: grid;
+    grid-template-columns: 168px minmax(0, 1fr);
+    gap: 20px;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .mod:last-child { border-bottom: 1px solid var(--rule); }
+  .mod .name { font-weight: 600; font-size: 14.5px; line-height: 1.35; }
+  .mod .name em {
+    display: block;
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    font-style: normal;
+    color: var(--ink-soft);
+    letter-spacing: .04em;
+    margin-top: 4px;
+  }
+  .mod .body { font-size: 14.5px; }
+  .mod .body p { margin-bottom: 8px; }
+  .mod .body p:last-child { margin-bottom: 0; }
+
+  /* ---------- pipeline diagram ---------- */
+
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    padding: 22px 20px 16px;
+    margin: 24px 0;
+    max-width: 70ch;
+  }
+  .diagram figcaption {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+    line-height: 1.6;
+    letter-spacing: .04em;
+  }
+  .diagram svg { display: block; width: 100%; height: auto; }
+
+  /* ---------- phase blocks ---------- */
+
+  .phase {
+    border-top: 1px solid var(--rule);
+    padding: 22px 0 4px;
+    max-width: 70ch;
+  }
+  .phase:last-of-type { border-bottom: 1px solid var(--rule); margin-bottom: 8px; }
+  .phase-top { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+  .phase-top .p-num {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: .06em;
+  }
+  .phase-top .p-name { font-family: var(--f-display); font-size: 1.32rem; line-height: 1.2; }
+  .phase-time {
+    font-family: var(--f-mono);
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+  }
+  .phase ul { margin-bottom: 12px; }
+
+  /* ---------- glossary ---------- */
+
+  .gloss { border-top: 1px solid var(--rule); max-width: 70ch; }
+  .gloss div {
+    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 18px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 14.5px;
+  }
+  .gloss dt { font-weight: 600; }
+  .gloss dd { margin: 0; color: var(--ink-mid); }
+
+  /* ---------- source list ---------- */
+
+  .sources { max-width: 70ch; font-size: 14px; }
+  .sources li { margin-bottom: 6px; }
+
+  .foot {
+    margin-top: 64px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    max-width: 70ch;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .shell { grid-template-columns: 1fr; }
+    .rail {
+      border-right: 0;
+      border-bottom: 1px solid var(--rule);
+      padding: 28px 22px 24px;
+    }
+    .rail-inner {
+      position: static;
+      max-height: none;
+      overflow-y: visible;
+      padding-right: 0;
+      margin-right: 0;
+    }
+    .rail nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0 20px; }
+    .rail .group { grid-column: 1 / -1; }
+    main { padding: 28px 22px 90px; }
+    .mod { grid-template-columns: 1fr; gap: 6px; }
+    .gloss div { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="rail">
+    <div class="rail-inner">
+      <div class="rail-mark">Practice&nbsp;by&nbsp;Numbers<br>Field Guide</div>
+      <nav>
+        <div class="group">The company</div>
+        <a href="#orientation"><span class="n">01</span><span>What PBN actually is</span></a>
+        <a href="#company"><span class="n">02</span><span>Company, founders, scale</span></a>
+        <a href="#thesis"><span class="n">03</span><span>The Frankenstack thesis</span></a>
+
+        <div class="group">The product</div>
+        <a href="#suites"><span class="n">04</span><span>Eight suites, mapped</span></a>
+        <a href="#analytics"><span class="n">05</span><span>Business Analytics</span></a>
+        <a href="#prm"><span class="n">06</span><span>PRM and Voice</span></a>
+        <a href="#ops"><span class="n">07</span><span>Operational Efficiency</span></a>
+        <a href="#ai"><span class="n">08</span><span>PbN AI</span></a>
+        <a href="#money"><span class="n">09</span><span>Payments and Marketing</span></a>
+        <a href="#integration"><span class="n">10</span><span>The integration layer</span></a>
+        <a href="#pricing"><span class="n">11</span><span>Pricing and packaging</span></a>
+
+        <div class="group">The market</div>
+        <a href="#pms"><span class="n">12</span><span>PMS landscape</span></a>
+        <a href="#dso"><span class="n">13</span><span>DSOs</span></a>
+        <a href="#kpi"><span class="n">14</span><span>KPIs that matter</span></a>
+        <a href="#rcm"><span class="n">15</span><span>Revenue cycle</span></a>
+        <a href="#regs"><span class="n">16</span><span>HIPAA, TCPA, PCI</span></a>
+        <a href="#competitors"><span class="n">17</span><span>Competitors</span></a>
+
+        <div class="group">Learning</div>
+        <a href="#path"><span class="n">18</span><span>Five-week path</span></a>
+        <a href="#questions"><span class="n">19</span><span>Questions to ask PBN</span></a>
+        <a href="#glossary"><span class="n">20</span><span>Glossary</span></a>
+        <a href="#sources"><span class="n">21</span><span>Sources</span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+    <div class="col">
+      <div class="eyebrow">Onboarding reference &middot; September 2026</div>
+      <h1>Practice by Numbers</h1>
+      <p class="standfirst">A dentist-founded platform that sits on top of a dental practice&rsquo;s management system and turns it into analytics, patient messaging, phones, payments and AI. Everything below is what you need to hold in your head before your first working conversation about it.</p>
+      <p class="byline">Compiled from practicenumbers.com, help.practicenumbers.com, and primary industry sources. Claims marked <em>unverified</em> are PBN&rsquo;s own marketing figures with no published methodology. Read those as positioning, not as data.</p>
+    </div>
+
+    <dl class="facts">
+      <div><dt>Founded</dt><dd>2015<small>Origin work from 2010&ndash;11; relaunched 2022</small></dd></div>
+      <div><dt>Headquarters</dt><dd>Redmond, WA<small>Fully remote team</small></dd></div>
+      <div><dt>Providers served</dt><dd>5,000+<small>Crossed in 2024</small></dd></div>
+      <div><dt>Entry price</dt><dd>$249<small>Per location, per month</small></dd></div>
+      <div><dt>Est. revenue</dt><dd>~$9.5M<small>Third-party estimate, low confidence</small></dd></div>
+      <div><dt>Funding</dt><dd>None found<small>Appears founder-financed</small></dd></div>
+    </dl>
+
+    <!-- ============ 01 ============ -->
+    <section id="orientation">
+      <div class="sec-head"><span class="num">01</span><h2>What PBN actually is</h2></div>
+
+      <p>A US dental practice is a small business. One to four dentists, five to twenty-five staff, and one system of record called the <strong>practice management system</strong> (PMS) that owns the schedule, the chart, the ledger and the insurance claims. Dentrix, Eaglesoft and Open Dental are the big three.</p>
+
+      <p>Almost every other dental software company is a satellite orbiting that PMS. It reads data out, does something the PMS does badly or not at all, and writes results back. Practice by Numbers is one of those satellites, and a broad one: it layers analytics, patient communication, a phone system, payments, digital forms and a set of AI agents on top of a database it does not own.</p>
+
+      <p>That one structural fact explains most of what follows. PBN&rsquo;s correctness depends on a third-party schema it cannot control, frequently running on a Windows box in the back office of a strip-mall dental practice. Its moat is the quality of that sync layer. Its support burden lives there too.</p>
+
+      <div class="note">
+        <span class="lab">The one-sentence version</span>
+        <p>PBN replaces the six-to-eight separate subscriptions a typical dental practice pays for &mdash; reminders, forms, payments, phones, reviews, analytics &mdash; with one platform that syncs bidirectionally with the practice&rsquo;s existing PMS, priced per location from $249 a month.</p>
+      </div>
+
+      <h3>Who buys it</h3>
+      <p>PBN maintains seven persona pages, and the buyer differs meaningfully by segment. The <strong>office manager</strong> is the day-to-day power user and often the internal champion. The <strong>dentist-owner</strong> signs. For multi-location groups and <strong>DSOs</strong>, a central operations or finance committee decides, and the sale becomes a procurement exercise with a security review attached. <strong>Dental consultants</strong> and <strong>marketing agencies</strong> are a third motion: they resell visibility to their own clients, and PBN pays them up to 8.5% recurring revenue share through a referral partner program.</p>
+
+      <p>Note one gap against the common assumption: there is no CPA persona page. CPAs appear only as a referral partner type and in a single testimonial.</p>
+    </section>
+
+    <!-- ============ 02 ============ -->
+    <section id="company">
+      <div class="sec-head"><span class="num">02</span><h2>Company, founders, scale</h2></div>
+
+      <p>Three co-founders, and the mix is the story PBN tells about itself constantly:</p>
+
+      <ul>
+        <li><strong>Dr. Aditi Agarwal, DMD</strong> &mdash; co-founder, a practicing dentist who graduated Boston University in 2003 and opened her first practice in 2010. She also hosts the company podcast.</li>
+        <li><strong>Rohit Garg</strong> &mdash; CEO and co-founder, joined the effort in 2011. Crunchbase lists his title as President, which is a small inconsistency worth not tripping over.</li>
+        <li><strong>Chris Lau, PhD</strong> &mdash; CTO and co-founder.</li>
+      </ul>
+
+      <p>The founding line is &ldquo;running a dental practice shouldn&rsquo;t be harder than treating patients,&rdquo; and the recurring proof point on nearly every page is <em>built by dentists who understand real workflows</em>. That clinician credibility is the company&rsquo;s primary differentiator against venture-funded competitors, and it is genuinely earned.</p>
+
+      <h3>Shape of the team</h3>
+      <p>Fully remote, distributed across the US, UK, India, Bangladesh and Vietnam. The public team page lists roughly 81 people by first name only. The functional mix is revealing: about 25 in customer experience, support and success, about 18 in engineering, 11 in marketing, 9 in sales. Roughly a third of the company is customer-facing.</p>
+
+      <p>That matters because responsive support is the single most-praised attribute across PBN&rsquo;s ~50 testimonials, and slow support is the criticism PBN levels at all nine of its named competitors. The headcount backs the claim, and a 4.9/5 across 104 G2 reviews corroborates it from a third direction. Of everything PBN asserts, this is the best-supported claim.</p>
+
+      <div class="note warn">
+        <span class="lab">Headcount is unreconciled</span>
+        <p>The About page says &ldquo;100+ global employees,&rdquo; Crunchbase says 51&ndash;100, Growjo estimates 73, and the team page lists ~81. Founding year is similarly muddled: the About page says 2015 while its own milestone timeline starts in 2010. Probably incorporation versus origin, but do not quote either figure as settled.</p>
+      </div>
+
+      <h3>Security posture, and the gap in it</h3>
+      <p>PBN claims TLS 1.2+ in transit, AES-256 at rest, US-based cloud hosting with logical per-practice tenant separation, role-based access control, enforceable MFA, access logging against permissions, a formal incident response procedure with HIPAA breach notification, background-checked staff, and business associate agreements on request.</p>
+
+      <p><strong>SOC 2 is not claimed anywhere on the security page.</strong> The footer links a Drata trust center, which is a compliance-automation vendor, so a SOC 2 program is plausible &mdash; but Type 1 versus Type 2, auditor and audit date are all unknown. Penetration testing, data retention specifics and GDPR posture are also absent. For anyone selling into healthcare or courting DSOs, that missing attestation is the first thing procurement asks for.</p>
+    </section>
+
+    <!-- ============ 03 ============ -->
+    <section id="thesis">
+      <div class="sec-head"><span class="num">03</span><h2>The Frankenstack thesis</h2></div>
+
+      <p>PBN&rsquo;s entire market position &mdash; homepage, all seven persona pages, all nine comparison pages, and its strongest case study &mdash; is one argument. You are paying six vendors for six logins, your front desk retypes the same data into all of them, and none of them tells you whether any of it worked. We replace all six.</p>
+
+      <p>Their best proof asset is Atlanta Dental Center, a two-doctor, ten-operatory practice on on-premise Dentrix that consolidated six subscriptions into PBN:</p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Measure</th><th class="mono">Result</th><th>What it was before</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Monthly tech spend</td><td class="mono">&minus;$475</td><td>Six separate subscriptions</td></tr>
+            <tr><td>Total software spend</td><td class="mono">&minus;33%</td><td>&mdash;</td></tr>
+            <tr><td>Staff time reclaimed</td><td class="mono">+3 hrs/wk</td><td>Duplicate data entry across tools</td></tr>
+            <tr><td>Patient confirmation rate</td><td class="mono">+27%</td><td>Separate reminder vendor</td></tr>
+            <tr><td>Treatment acceptance</td><td class="mono">+17%</td><td>No unscheduled-treatment visibility</td></tr>
+            <tr><td>Collections</td><td class="mono">+7%</td><td>Manual balance follow-up</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The owner&rsquo;s quote is the thesis stated plainly: &ldquo;We had all these different technology pieces&hellip; each had a different vendor, and each system required its own login, workflow, and training.&rdquo;</p>
+
+      <p>Reinforcing it structurally: <strong>PBN bills per location, not per provider or per seat.</strong> The terms of use define a location as a licensed office. That is friendlier than per-provider pricing for a multi-dentist single office, and it is a real competitive fact rather than marketing.</p>
+
+      <div class="note warn">
+        <span class="lab">Handle this stat carefully</span>
+        <p>PBN&rsquo;s most-repeated headline is a <strong>566% increase in same-day treatment acceptance</strong> at Midtown Dental Studio. No baseline is published. A 566% lift implies a very low starting number, so treat it as directionally impressive and statistically soft. The same case&rsquo;s collections figure (+36%) and visit growth (+17%) are more defensible.</p>
+      </div>
+    </section>
+
+    <!-- ============ 04 ============ -->
+    <section id="suites">
+      <div class="sec-head"><span class="num">04</span><h2>Eight suites, mapped</h2></div>
+
+      <p>The product is organised into eight suites. Learn the suite names, because that is the vocabulary PBN&rsquo;s own team, docs and pricing tiers use. The five sections after this one walk each of them.</p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Suite</th><th>Job it does</th><th>Modules</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Business Analytics</strong></td><td>Tell the practice what happened and where the money is</td><td>Practice IQ, Revenue IQ, Enterprise Dashboard, Daily Huddle</td></tr>
+            <tr><td><strong>Patient Relationship Management</strong></td><td>Get patients to show up and come back</td><td>Reminders, two-way texting, follow-up campaigns, online booking, patient portal, review management</td></tr>
+            <tr><td><strong>Operational Efficiency</strong></td><td>Take manual work off the front desk</td><td>Patient Flow, Insurance Verification, Advanced Task Management, Daily Huddle, Grow App</td></tr>
+            <tr><td><strong>PbN AI</strong></td><td>Automate the phone and the paperwork</td><td>AI Receptionist, Call AI, Ops AI, IntelliSuite</td></tr>
+            <tr><td><strong>Dental Marketing Suite</strong></td><td>Prove which marketing dollar produced which patient</td><td>Marketing IQ, Marketing ROI, call tracking, webchat, custom campaigns</td></tr>
+            <tr><td><strong>PbN Payments</strong></td><td>Collect faster and post to the ledger automatically</td><td>Anywhere Payments, ZeroPay, Payment Plans</td></tr>
+            <tr><td><strong>PbN Voice</strong></td><td>Be the phone system, so it can see every call</td><td>Cloud VoIP, virtual receptionist, virtual fax, call rescue</td></tr>
+            <tr><td><strong>Smart Forms</strong></td><td>Kill paper intake</td><td>Digital Forms, Web Kiosk check-in</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note">
+        <span class="lab">The dependency that shapes everything</span>
+        <p><strong>PbN Voice is a hard prerequisite for every call-level AI feature</strong> &mdash; Call AI, Call AI Plus, IntelliSuite call analytics, and VoIP calling in the mobile app. Owning the phone line is what lets PBN transcribe, score and attribute calls. Understand this and the whole product strategy snaps into focus: Voice is not a side business, it is the data-capture layer for the AI business.</p>
+      </div>
+    </section>
+
+    <!-- ============ 05 ============ -->
+    <section id="analytics">
+      <div class="sec-head"><span class="num">05</span><h2>Business Analytics</h2></div>
+
+      <p>This is where PBN started and still the centre of gravity. The positioning line is &ldquo;All Your Practice Metrics, in One Simple View.&rdquo;</p>
+
+      <div class="modules">
+        <div class="mod">
+          <div class="name">Practice IQ<em>The core dashboard</em></div>
+          <div class="body">
+            <p>Customisable dashboards over 600+ KPIs, with peer benchmarking against national practices (&ldquo;Track and Compare&rdquo;), a Revenue Opportunities view for hidden revenue queries, and custom tags for profitability analysis. Single sign-on across an organisation.</p>
+            <p>Two AI layers ride on top: <strong>PiQ Insights</strong> for automated KPI summaries and trend analysis, and <strong>PiQ Assistant</strong> for natural-language queries that return a visualisation.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">Revenue IQ<em>The action layer</em></div>
+          <div class="body">
+            <p>Where analytics becomes a worklist. <strong>Patient Finder</strong> offers 40+ filters plus AI search to surface unscheduled treatment plans, patients with remaining insurance benefits, inactive patients and overdue recalls. Saved searches build a reusable filter library.</p>
+            <p><strong>Smart Tasking</strong> then auto-assigns follow-ups with overdue/due-today/upcoming status, tracks call attempts and outcomes, and can launch a campaign against the segment. Claimed reappointment improvement of 30&ndash;50%.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">Enterprise Dashboard<em>Multi-location roll-up</em></div>
+          <div class="body">
+            <p>The DSO surface. Single sign-on across locations, drill-down from group to office to provider, cross-location comparison on production, collections, retention, treatment acceptance, hygiene productivity and scheduling efficiency. Pitched for 5 to 500+ locations.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">Daily Huddle<em>The ten-minute morning meeting</em></div>
+          <div class="body">
+            <p>Not a dashboard so much as a scripted standup. Yesterday&rsquo;s numbers, scheduled production against today&rsquo;s goal with the specific gap-closing opportunities, new-patient alerts, patients arriving with outstanding balances, pending treatment plans with talking points, and unscheduled family members accompanying a patient.</p>
+            <p>This is the module practices talk about most warmly in testimonials, and it is worth understanding why: it converts analytics into a daily ritual the team performs, rather than a report nobody opens.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="note warn">
+        <span class="lab">Internal inconsistency</span>
+        <p>The KPI count is stated as <strong>600+</strong> on Business Analytics, Practice IQ and the Dental Intel comparison page, but <strong>400+</strong> on the Enterprise Dashboard page. Similarly the homepage&rsquo;s five headline stats (375+ hours saved, 32% fewer claim denials, 40% more reviews, 48+ chairs filled, 99.99% uptime) carry no footnote or methodology anywhere on the site and trace to no published case study.</p>
+      </div>
+    </section>
+
+    <!-- ============ 06 ============ -->
+    <section id="prm">
+      <div class="sec-head"><span class="num">06</span><h2>PRM and Voice</h2></div>
+
+      <p>Patient Relationship Management is the module set that fights the two things that cost a dental practice most: empty chairs and patients who drift away.</p>
+
+      <h3>What is actually in it</h3>
+      <ul>
+        <li><strong>Patient Reminders</strong> &mdash; text, email and voice, with configurable timing and tone, and <em>family messaging</em> that sends one notification to the primary contact when several family members have same-day appointments. Responses update the PMS in real time.</li>
+        <li><strong>Two-way texting</strong> &mdash; sent from the practice&rsquo;s existing phone line, with the full conversation stored in the PMS as patient notes.</li>
+        <li><strong>Online booking</strong> &mdash; reads live schedule availability and writes appointments back either automatically or on approval. Configurable by time slot, operatory, provider or appointment type, with Google Reserve integration so patients can book from Search and Maps, and patient blocking for high-risk cases or specific insurance types.</li>
+        <li><strong>Review management</strong> &mdash; automated post-visit requests to Google, Yelp and Facebook, with smart exclusions that filter by treatment type, custom tag or PMS note so you do not ask the patient who just had a bad extraction.</li>
+        <li><strong>Patient portal</strong> &mdash; balances, stored cards, appointments, forms, treatment plans and consent signing, custom-branded.</li>
+        <li><strong>Campaign tiers</strong> &mdash; Essential (four pre-built workflows: appointment reminder, hygiene pre-appointment, recall follow-up, cancelled-appointment follow-up), Custom (200+ templates), and Advanced (behaviour-triggered).</li>
+      </ul>
+
+      <h3>The follow-up escalation pattern</h3>
+      <p>Worth knowing in detail, because it is a good piece of product design. A follow-up campaign sends on the patient&rsquo;s preferred channel. If there is no response it tries alternate channels. If those fail, it <strong>creates a staff task</strong> for a human phone call. Six campaign types run this way: recall (typically six-month, resets on cancellation), reactivation (inactive 365+ days), unscheduled treatment, cancelled appointment, failed appointment, and post-op instructions.</p>
+
+      <h3>PbN Voice</h3>
+      <p>Cloud VoIP with touch-screen handsets, a soft dialer, and unlimited calling. The features that matter are the PMS-integrated ones: <strong>call pop-ups showing patient details before you answer</strong>, parked calls displayed with patient names, voicemail-to-text transcribed and logged into the PMS, virtual fax with no hardware, and <em>call rescue texts</em> that turn a missed call into a booked appointment. Smart routing works by time, department or location. An AI add-on layers call summaries written back to the PMS, call scoring for staff coaching, and AI-drafted follow-ups.</p>
+
+      <p>PBN will also buy you out of your existing phone contract, which tells you how strategically important owning the line is to them.</p>
+    </section>
+
+    <!-- ============ 07 ============ -->
+    <section id="ops">
+      <div class="sec-head"><span class="num">07</span><h2>Operational Efficiency</h2></div>
+
+      <p>The suite aimed squarely at front-desk labour. Claimed effect: 20&ndash;40 hours saved weekly per front-desk team, 25&ndash;30% faster check-in-to-payment cycle, 40% fewer manual errors.</p>
+
+      <div class="modules">
+        <div class="mod">
+          <div class="name">Insurance Verification<em>The highest-ROI module</em></div>
+          <div class="body">
+            <p>Verification triggered automatically by practice-defined rules, plus bulk verification of an entire day&rsquo;s schedule and guest verification for prospective patients. Completed verifications save as PDFs into the PMS document center. AI-generated summaries highlight coverage limits, frequencies, deductibles and financial details.</p>
+            <p>The report returns coverage start and end dates, alerts for terminated or inactive plans, deductible met and remaining, and in-network co-pay specifics. This module has the <strong>widest PMS support on the platform &mdash; 19 systems</strong> &mdash; because it is read-only and therefore easier to integrate broadly.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">Patient Flow<em>The operatory board</em></div>
+          <div class="body">
+            <p>A live status dashboard tracking checked-in, seated and check-out, with drag-and-drop between statuses and rooms. A <em>ready-to-seat</em> state separates arrived from clinically ready. Digital routing slips carry patient details, alerts, clinical notes, service codes and checkout tasks. Unlimited custom alerts (&ldquo;Need Hygiene Check&rdquo;, &ldquo;10 Mins Behind&rdquo;), instant provider summoning to a room, and status changes written back to the PMS.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">Advanced Task Management<em>The accountability layer</em></div>
+          <div class="body">
+            <p>Bulk task creation from the Huddle interface across one or many patients, custom task types grouped as general, patient care, appointments, follow-ups and communications, with assignment, due dates, and required outcome selection plus notes on completion.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">Smart Forms<em>Intake without paper</em></div>
+          <div class="body">
+            <p>Digital forms delivered by SMS or email before the appointment, built in a drag-and-drop builder with conditional logic, bundled into a single assignment link, in English and Spanish, with an embedded payment block and authentication by last name plus date of birth or a one-time password.</p>
+            <p><strong>Web Kiosk</strong> runs in a browser on an iPad or desktop, locked to the check-in app via Guided Access, with PIN two-factor across unlimited registered devices, QR handoff to the patient&rsquo;s own phone, ID card and insurance capture, patient photo upload, and live treatment plan retrieval from the PMS. Ops AI summarises submitted forms and flags allergies and medications.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">PbN Grow App<em>Mobile</em></div>
+          <div class="body">
+            <p>iOS and Android. Schedule, two-way texting, mobile Practice IQ and Revenue IQ dashboards, payment requests, patient search, VoIP calling on the office line (requires PbN Voice), review prompts, booking and team chat. Face ID / Touch ID, role-based access, and no sensitive patient data stored on device.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 08 ============ -->
+    <section id="ai">
+      <div class="sec-head"><span class="num">08</span><h2>PbN AI</h2></div>
+
+      <p>Four products. Understand up front that in September 2026 an AI receptionist, call analytics and automated insurance verification are <strong>table stakes across this entire category</strong>, not differentiators. Every named competitor ships all three. Differentiation has moved to depth of PMS writeback.</p>
+
+      <div class="modules">
+        <div class="mod">
+          <div class="name">AI Receptionist<em>Voice agent</em></div>
+          <div class="body">
+            <p>Handles after-hours, lunch-break and overflow calls. Books directly into the PMS against real-time availability, handles cancellations and confirmations, answers balance inquiries with identity verification, triages to the right provider and operatory, explains cancellation policies, and hands off to human staff with call context. Runs on a customisable knowledge base, single login, toggleable on and off.</p>
+            <p>The pitch stat: roughly 35% of calls go unanswered during business hours, and a third of those are new patients worth $10,000+ in lifetime value.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">Call AI<em>Conversation intelligence</em></div>
+          <div class="body">
+            <p>Transcription with topic recognition, sentiment detection, keyword highlighting for insurance, emergencies, reschedules and first-time callers, caller-type identification, and AI summaries extracting purpose, outcome, action items and unresolved issues. The dashboard reports answer rates, missed calls, negative-sentiment percentage, new-patient conversion and quantified lost opportunity.</p>
+            <p>Requires PbN Voice. Sold as an add-on. Advanced features (call scoring, agent performance, coaching, instant negative-call alerts) sit in the higher tier, not base Call AI.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">Ops AI<em>Admin automation</em></div>
+          <div class="body">
+            <p>Six components, and this is the most immediately useful set: <strong>PiQ Assistant</strong> and <strong>RiQ Assistant</strong> for natural-language analytics, <strong>Form Summary</strong> which flags medication allergies out of intake forms, <strong>Message Creation</strong> for SMS and email drafts, <strong>Review Response</strong> with adjustable tone, and <strong>Insurance Summary</strong> which extracts coverage breakdowns from payer PDFs.</p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="name">IntelliSuite<em>The bundle</em></div>
+          <div class="body">
+            <p>Ops AI plus Call AI Plus in one engine. Adds advanced call scoring, predictive performance forecasting, review categorisation by sentiment, outcome tracking, multi-language translation of emails, texts, transcripts and notes, and <strong>voice fingerprinting for caller verification</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        <span class="lab">Where the real difficulty is</span>
+        <p>The hard engineering in an AI receptionist is not the voice model. It is the <em>write</em>. Booking an appointment means reading real operatory availability, provider schedules, appointment-type durations and block-scheduling rules out of the PMS, then writing an appointment back correctly. That is a PMS integration problem, and it is exactly where a company with a mature sync layer beats a voice-AI startup. Note too that TCPA applies to AI-initiated outbound calls, and the model provider needs a business associate agreement.</p>
+      </div>
+    </section>
+
+    <!-- ============ 09 ============ -->
+    <section id="money">
+      <div class="sec-head"><span class="num">09</span><h2>Payments and Marketing</h2></div>
+
+      <h3>PbN Payments</h3>
+      <p>Embedded payments are the highest-margin attach product in this category, which is why every competitor sells one. PBN&rsquo;s version claims 500+ practices on its POS and 100,000+ transactions monthly, with a 30% reduction in outstanding patient balances and A/R cycles 15 days faster.</p>
+
+      <p>The mechanics: <strong>text-to-pay</strong> links with the statement or treatment plan attached; a <strong>public payment portal</strong> a patient can use with only a name and date of birth, no login; card-present via Castles S1F2 or Verifone P400 Plus terminals; and A/R automation that segments patients by claim status, balance size or tag and runs up to ten automated follow-ups each. Every payment posts to the PMS ledger automatically, with failed-sync alerts to the action center.</p>
+
+      <p><strong>Payment Plans</strong> is the in-house financing alternative to third-party lenders: weekly, bi-weekly or monthly schedules, configurable down payments and discounts, automatic card charging with smart retry (five attempts over one week), aging triggers at 30/60/90+ days, and plan pausing up to 30 days.</p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Pricing model</th><th class="mono">Rate</th><th>Who it suits</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>PbN Payments &mdash; card not present</td><td class="mono">2.9% + $0.30</td><td rowspan="2">High debit volume; practice absorbs the fee</td></tr>
+            <tr><td>PbN Payments &mdash; point of sale</td><td class="mono">2.69% + $0.25</td></tr>
+            <tr><td>American Express (either)</td><td class="mono">3.4% + $0.30</td><td>&mdash;</td></tr>
+            <tr><td>PbN ZeroPay (surcharging)</td><td class="mono">up to 2.69%</td><td>Passed to the patient; saves $15k&ndash;$21k/yr at $50k/mo volume</td></tr>
+            <tr><td>Interchange+</td><td class="mono">cost + set fee</td><td>Larger practices wanting cost transparency</td></tr>
+            <tr><td>Payment Plans</td><td class="mono">3.9% + $0.30</td><td>In-house financing</td></tr>
+            <tr><td>Terminal</td><td class="mono">$29.99/mo</td><td>Free above $15,000 monthly volume</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>ZeroPay</strong> is worth understanding as a compliance product, not just a pricing one. It automatically excludes debit, prepaid and certain business cards from surcharging, handles regional rules, and shows the surcharge as a separate receipt line. Surcharging is permitted in 46 states and prohibited or restricted in California, Connecticut, Maine and Massachusetts. That is card-network rules and state law, not PCI.</p>
+
+      <h3>Dental Marketing Suite</h3>
+      <p>The loop this suite closes is the one every dental marketing agency struggles to prove: which ad produced which patient, and how much dentistry did that patient actually buy.</p>
+
+      <ul>
+        <li><strong>Marketing IQ / Marketing ROI</strong> &mdash; lead source identification across Facebook, Google, Yelp, direct and referral; <em>dynamic number insertion</em> giving each campaign its own tracking number; attribution from first contact through treatment completion and payment. Reports cost per acquisition by source, patient lifetime value, and <strong>production by lead source rather than just lead count</strong>. Integrates Google Ads, Google Analytics, Google Tag Manager and <strong>QuickBooks</strong> &mdash; the QuickBooks link is what lets it compute real ROI against actual spend.</li>
+        <li><strong>Call tracking</strong> &mdash; Smart Caller ID showing patient name, treatment plan, outstanding balance and notes; &ldquo;PhoneIQ&rdquo; identifying likely new-patient calls. Works with an existing landline or VoIP without changing numbers, which makes it the low-friction entry point.</li>
+        <li><strong>Webchat</strong> &mdash; asynchronous, so the conversation survives the visitor closing the tab and continues by text. Multi-location routing, group chat, in-conversation booking.</li>
+        <li><strong>Custom Campaigns</strong> &mdash; 200+ email and SMS templates with targeting by visit history, treatment need and engagement.</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="lab">TCPA exposure lives here</span>
+        <p>Appointment reminders fall under the healthcare exemption and need only prior express consent. <strong>Whitening promotions, membership pitches and &ldquo;use your benefits before year-end&rdquo; campaigns are marketing</strong> and need prior express written consent. That last one is a genuinely contested gray area and practices love sending it. Section 16 has the detail.</p>
+      </div>
+    </section>
+
+    <!-- ============ 10 ============ -->
+    <section id="integration">
+      <div class="sec-head"><span class="num">10</span><h2>The integration layer</h2></div>
+
+      <p>If you learn one thing deeply, learn this. It is the technical heart of the company and the least documented part of the public site &mdash; almost everything below comes from the help center rather than marketing pages.</p>
+
+      <h3>The supported systems, which differ by module</h3>
+      <p>PBN advertises six PMS platforms in nearly every page footer: <strong>Dentrix, Dentrix Ascend, Practice-Web, Eaglesoft, Open Dental, Curve Dental</strong>. But the real support matrix varies by module, and this is a nuance to hold:</p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Module</th><th>Systems supported</th><th>Why the difference</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Insurance Verification</td><td class="mono">19</td><td>Read-only; adds OrthoTrac, SoftDent, Dolphin, Tracker, Fuse, ABELDent, DentiMax, PracticeWorks, Sensei Cloud and others</td></tr>
+            <tr><td>Standard footer claim</td><td class="mono">6</td><td>The marketed set</td></tr>
+            <tr><td>Online booking</td><td class="mono">5</td><td>Drops Curve Dental; needs schedule writeback</td></tr>
+            <tr><td>Operational Efficiency</td><td class="mono">4</td><td>Dentrix, Dentrix Ascend, Eaglesoft, Open Dental only</td></tr>
+            <tr><td>Payments (two-way)</td><td class="mono">4 + versions</td><td>Dentrix G7.2+, Open Dental 20+, Dentrix Ascend, Eaglesoft 17+ &mdash; ledger writeback is the deepest integration</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The pattern is consistent: the deeper the write, the narrower the support. Any &ldquo;works with your PMS&rdquo; claim needs qualifying per module.</p>
+
+      <h3>How the sync actually works</h3>
+
+      <figure class="diagram">
+        <svg viewBox="0 0 640 232" role="img" aria-label="Diagram of the PBN sync architecture: practice PMS database connects through a local agent, outbound over TLS to the PBN cloud, with a separate faster writeback queue returning to the PMS.">
+          <defs>
+            <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
+            </marker>
+          </defs>
+          <g fill="none" stroke="currentColor" color="var(--rule-strong)" stroke-width="1">
+            <rect x="1" y="26" width="196" height="180" rx="2" fill="var(--surface-2)" stroke="var(--rule)"></rect>
+            <rect x="443" y="26" width="196" height="180" rx="2" fill="var(--surface-2)" stroke="var(--rule)"></rect>
+          </g>
+
+          <text x="12" y="18" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1" fill="var(--ink-soft)">PRACTICE (ON PREMISE)</text>
+          <text x="454" y="18" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1" fill="var(--ink-soft)">PBN CLOUD</text>
+
+          <g stroke="var(--accent)" fill="var(--accent-wash)" stroke-width="1.2">
+            <rect x="22" y="46" width="154" height="46" rx="2"></rect>
+            <rect x="22" y="140" width="154" height="46" rx="2"></rect>
+            <rect x="464" y="46" width="154" height="46" rx="2"></rect>
+            <rect x="464" y="140" width="154" height="46" rx="2"></rect>
+          </g>
+
+          <g font-family="IBM Plex Sans, sans-serif" font-size="12" fill="var(--ink)">
+            <text x="99" y="66" text-anchor="middle" font-weight="600">PMS database</text>
+            <text x="99" y="82" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">Sybase / MySQL / c-tree</text>
+            <text x="99" y="160" text-anchor="middle" font-weight="600">Local agent</text>
+            <text x="99" y="176" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">Windows service on server</text>
+            <text x="541" y="66" text-anchor="middle" font-weight="600">Normalised store</text>
+            <text x="541" y="82" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">Per-tenant, AES-256</text>
+            <text x="541" y="160" text-anchor="middle" font-weight="600">Writeback queue</text>
+            <text x="541" y="176" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">Idempotent, 15s&ndash;60s</text>
+          </g>
+
+          <g stroke="var(--ink-soft)" stroke-width="1.1" fill="none" color="var(--ink-soft)">
+            <path d="M99,92 L99,140" marker-end="url(#ar)"></path>
+            <path d="M176,163 L464,163" marker-end="url(#ar)"></path>
+            <path d="M541,140 L541,92" marker-end="url(#ar)"></path>
+            <path d="M464,69 L176,69" marker-end="url(#ar)"></path>
+          </g>
+
+          <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--ink-soft)" letter-spacing="0.5">
+            <text x="108" y="120">incremental read</text>
+            <text x="320" y="156" text-anchor="middle">outbound TLS &mdash; no inbound ports</text>
+            <text x="320" y="60" text-anchor="middle">writes: notes, appts, payments, forms</text>
+          </g>
+        </svg>
+        <figcaption>Read cycle: 2 / 5 / 10 / 15 / 30 / 45 / 60 minutes, 15 min default. Writeback runs separately and faster &mdash; appointment status 15s, new patients 30s, appointment changes 60s.</figcaption>
+      </figure>
+
+      <p><strong>It is primarily a read integration with configurable writeback.</strong> PBN&rsquo;s own words for Dentrix Ascend: &ldquo;the system functions primarily as a data-reading integration, though write-back behavior is fully configurable.&rdquo; Practices control what syncs back under <em>Practice Settings &rsaquo; PMS Write-Back Configuration</em>.</p>
+
+      <ul>
+        <li><strong>Initial sync</strong> takes 1&ndash;3 hours depending on history volume. The platform is usable during it, but reports show incomplete data.</li>
+        <li><strong>Ongoing sync is incremental</strong> &mdash; only modified or new records move. Seven configurable intervals from 2 to 60 minutes, 15 the default. PBN recommends 30&ndash;60 min for practices under 50 daily appointments, 10&ndash;15 for 50&ndash;150, and 5&ndash;10 above 150.</li>
+        <li><strong>Writeback is faster and separate:</strong> appointment status every 15 seconds, new patients every 30, appointment changes every 60.</li>
+        <li><strong>What gets written back:</strong> SMS conversations as patient notes, email history, phone call logs typed as incoming/outgoing/missed including transcripts and summaries, appointment status changes, uploaded documents, submitted forms, new patient records and appointments, task notes, insurance verification notes, and payments to the ledger. Note type, document type, appointment status mapping and payment type mapping are all configurable.</li>
+        <li><strong>Per-PMS quirks:</strong> Open Dental requires &ldquo;Show Automated Commlogs&rdquo; enabled for SMS logs. Eaglesoft and Dentrix require provider ID or code configuration.</li>
+        <li><strong>Cloud versus on-premise:</strong> Dentrix Ascend connects by API with a client ID and secret, stored encrypted over TLS. Server-based systems depend on the practice&rsquo;s own machine &mdash; the help center tells practices to &ldquo;ensure your server is powered on and connected to the internet&rdquo; and to have someone with server access available during a support call.</li>
+        <li><strong>Multi-location:</strong> each Dentrix Ascend location needs a separate PBN practice account with its own connection. The Enterprise Dashboard unifies them under single sign-on.</li>
+        <li><strong>Manual override:</strong> a Force Incremental Sync button triggers an immediate cycle. A sync-issue banner appears on the dashboard when the connection breaks.</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="lab">The undocumented part</span>
+        <p>PBN never names an on-premise agent or connector product publicly. No system requirements, no ports, no firewall rules, no architecture diagram. The dependency is only inferable from troubleshooting language. There <em>is</em> a downloadable &ldquo;PbN Printer&rdquo; local install used to push statements and treatment plans into PBN. If you need the real architecture, ask &mdash; and read section 12 for how the comparable integrations work at Open Dental and Henry Schein One, which are documented.</p>
+      </div>
+    </section>
+
+    <!-- ============ 11 ============ -->
+    <section id="pricing">
+      <div class="sec-head"><span class="num">11</span><h2>Pricing and packaging</h2></div>
+
+      <p>Five tiers, billed <strong>per location</strong>, month-to-month or annual, from $249. Every feature is either included, an add-on, or metered. Insurance Verification is metered at every tier.</p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Tier</th><th>What it is for</th><th>Notable inclusions</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Analyze</strong></td><td>Analytics-only entry point</td><td>Upgraded analytics, Huddle, metered verification. Practice IQ, Revenue IQ, Marketing IQ, Ops AI, Call AI all add-ons</td></tr>
+            <tr><td><strong>Core</strong></td><td>The $249 starting point</td><td>Essential analytics, two-way texting, voicemail drops, mobile app, reminder and recall campaigns</td></tr>
+            <tr><td><strong>Flow</strong></td><td>Front-desk automation</td><td>Adds PMS writeback, Smart Forms and kiosk, Patient Flow, team messaging, online booking, task reporting</td></tr>
+            <tr><td><strong>Scale</strong></td><td>Analytics-serious practices</td><td>Practice IQ and Revenue IQ included, full Smart Forms, Patient Portal</td></tr>
+            <tr><td><strong>Thrive</strong></td><td>Everything</td><td>Includes PbN Voice. Only AI Receptionist remains an add-on</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Note that <strong>PMS writeback itself is a Flow-tier feature</strong>. On Core, the integration is read-only. That is a significant packaging decision and a useful thing to know when someone describes what PBN &ldquo;does.&rdquo;</p>
+
+      <div class="note warn">
+        <span class="lab">Transparency claim, partly unmet</span>
+        <p>PBN attacks competitors on hidden fees and pricing opacity, but publishes no per-tier prices, no add-on prices, no setup fees and no SMS limits. The <em>structure</em> is transparent; the numbers are sales-gated. G2 also places PBN in its highest cost bracket, which sits awkwardly against the affordability positioning. Contracts auto-renew, require 30 days&rsquo; written notice, and early termination requires paying the full remaining balance.</p>
+      </div>
+    </section>
+
+    <!-- ============ 12 ============ -->
+    <section id="pms">
+      <div class="sec-head"><span class="num">12</span><h2>PMS landscape</h2></div>
+
+      <p>You cannot understand PBN without understanding what it plugs into. Roughly half the installed base is still on-premise Windows software, which is the single fact that shapes the engineering of this whole category.</p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>System</th><th>Vendor</th><th>Deploy</th><th>Backend / integration path</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Dentrix</strong></td><td>Henry Schein One</td><td>On-prem</td><td>Proprietary c-tree engine, not SQL Server. API Exchange (OAuth 2.0, 700 endpoints, gated to approved vendors)</td></tr>
+            <tr><td><strong>Dentrix Ascend</strong></td><td>Henry Schein One</td><td>Cloud</td><td>API with client ID and secret</td></tr>
+            <tr><td><strong>Eaglesoft</strong></td><td>Patterson</td><td>On-prem</td><td>SAP/Sybase SQL Anywhere, historically ODBC from a LAN agent. Docs not public</td></tr>
+            <tr><td><strong>Open Dental</strong></td><td>Open Dental</td><td>On-prem</td><td>MySQL/MariaDB. <strong>Documented REST API</strong>, two-key auth, eConnector agent for remote access</td></tr>
+            <tr><td><strong>Curve Dental</strong></td><td>Curve</td><td>Cloud</td><td>Browser-native; bundles imaging, Curve Pay, Eligibility+</td></tr>
+            <tr><td><strong>Denticon</strong></td><td>Planet DDS</td><td>Cloud</td><td>DSO-first, 13,000+ practices. <em>Not a PBN integration</em></td></tr>
+            <tr><td><strong>Fuse</strong></td><td>Patterson</td><td>Cloud</td><td>Patterson&rsquo;s cloud answer</td></tr>
+            <tr><td><strong>CareStack</strong></td><td>CareStack</td><td>Cloud</td><td>Native RCM plus VoiceStack AI. <em>Not a PBN integration</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Open Dental is the one to study,</strong> because it is the only major system with public, well-designed integration docs. Resources map roughly one-to-one to database tables. Auth carries two keys, a developer key and a per-practice customer key, as <code>Authorization: ODFHIR {dev}/{customer}</code>. The <strong>eConnector</strong> is a Windows service on the practice server that holds the database credentials, reports heartbeats, and brokers remote API traffic &mdash; and if the machine sleeps, everything stops. Two sharp edges worth internalising: normal user permissions <em>log</em> API actions but do not restrict them, and date restrictions the desktop app enforces on staff <strong>do not apply to the API</strong>. Least privilege is your problem, not the platform&rsquo;s. Reading those docs is the fastest way to understand the shape of dental data.</p>
+
+      <div class="note warn">
+        <span class="lab">Do not quote PMS market share</span>
+        <p>There is no reliable public dataset. Vendor self-reported installed bases are non-comparable, and the widely circulated 6sense percentages come from web-technology fingerprinting over a ~6,600-company sample against a market of 120,000+ practice locations &mdash; it systematically undercounts on-premise desktop software and mixes PMS with engagement products. The defensible qualitative read: Dentrix and Eaglesoft together hold the largest general-dentistry share, Open Dental is fastest-growing among independents and hugely over-represented among integrators, and cloud is where net-new and DSO growth goes but remains a minority of the installed base.</p>
+      </div>
+
+      <h3>The aggregators, who are also competitors</h3>
+      <p><strong>Sikka Software</strong> claims 400+ PMS integrations and 188M+ patients, sells a unified API to developers via an on-premise extraction agent &mdash; and has since moved up-stack into its own end product. <strong>NexHealth</strong> sells the Synchronizer universal API with bearer auth, webhooks, a sandbox and an OpenAPI spec, while also competing as a patient-experience product. Both illustrate the platform risk in this market: Open Dental publicly characterises NexHealth as an unauthorised third party. If you build on an aggregator, your PMS access is only as durable as their relationship with the PMS vendor.</p>
+
+      <p>And the deepest structural tension: <strong>Henry Schein One is simultaneously PBN&rsquo;s most important data supplier and a competitor across nearly every module</strong> &mdash; it owns Dentrix, Dentrix Ascend, Jarvis Analytics, Sesame and Lighthouse 360.</p>
+    </section>
+
+    <!-- ============ 13 ============ -->
+    <section id="dso">
+      <div class="sec-head"><span class="num">13</span><h2>DSOs</h2></div>
+
+      <p>A <strong>Dental Service Organization</strong> contracts with dental practices to provide everything non-clinical: HR, payroll, marketing, procurement, IT, revenue cycle, real estate, compliance. The clinical entity stays dentist-owned and keeps clinical decision-making.</p>
+
+      <p>The split exists because most states have <em>corporate practice of dentistry</em> laws barring non-dentists from owning a practice. The structure is a dentist-owned professional corporation signing a long-term management services agreement with the DSO, which takes a management fee. That is the legal chassis that lets private equity capitalise dentistry.</p>
+
+      <p>Scale, from the ADA Health Policy Institute and the ADSO: 16% of US dentists were DSO-affiliated as of 2024. Private-practice ownership fell from 84.7% of dentists in 2005 to 72.5% in 2023. ADSO members alone cover 8,500+ practices and roughly $18B in revenue. New dentists graduate with heavy debt and are reluctant to add acquisition debt; retiring dentists need an exit and DSOs are the buyer of record.</p>
+
+      <h3>Why this reshapes a product roadmap</h3>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th></th><th>Independent practice</th><th>DSO</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Buyer</strong></td><td>Dentist or office manager</td><td>Central ops/finance/IT committee, long cycle, security review</td></tr>
+            <tr><td><strong>Contract</strong></td><td>Per-office, credit card</td><td>Negotiated enterprise terms, custom redlines</td></tr>
+            <tr><td><strong>Wants</strong></td><td>&ldquo;Does it work with my Dentrix&rdquo;</td><td>One pane of glass across N locations, roll-ups, provider scorecards</td></tr>
+            <tr><td><strong>PMS</strong></td><td>One</td><td>Often several &mdash; acquisitions arrive with whatever they had</td></tr>
+            <tr><td><strong>Access model</strong></td><td>Flat users</td><td>Region &rsaquo; group &rsaquo; location &rsaquo; provider hierarchy with RBAC</td></tr>
+            <tr><td><strong>Requires</strong></td><td>Nothing</td><td>SAML SSO, SCIM, audit logs, SOC 2, pen-test reports, BAA</td></tr>
+            <tr><td><strong>Churn</strong></td><td>Quiet, one office</td><td>Forty locations at once &mdash; also the biggest expansion vector</td></tr>
+            <tr><td><strong>Benchmarking</strong></td><td>Against nothing</td><td>Inter-location, which forces your KPI math to be defensible</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Two consequences for PBN specifically. First, the Enterprise Dashboard exists because of this segment. Second, DSOs push practices to consolidate onto one cloud PMS &mdash; usually Denticon, Ascend, CareStack or Fuse &mdash; and <strong>PBN does not integrate Denticon or CareStack</strong>. That is a real constraint on the DSO story, and Dental Intelligence covers Denticon and Fuse where PBN covers Curve and Practice-Web instead.</p>
+    </section>
+
+    <!-- ============ 14 ============ -->
+    <section id="kpi">
+      <div class="sec-head"><span class="num">14</span><h2>KPIs that matter</h2></div>
+
+      <p>Learn these definitions properly. Two analytics products will report different numbers for the same practice, almost always because of adjustment timing, provider attribution, or a different active-patient window &mdash; and that disagreement is the most common &ldquo;your data is wrong&rdquo; support ticket in this category.</p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Metric</th><th>Definition</th><th>The trap</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Production</strong></td><td>Dollar value of dentistry performed at full fee in a period</td><td>Gross vs net (net subtracts writeoffs). Always state which</td></tr>
+            <tr><td><strong>Collections</strong></td><td>Cash actually received in the period</td><td>Not tied to the same procedures as the period&rsquo;s production</td></tr>
+            <tr><td><strong>Collection ratio</strong></td><td>Collections &divide; production</td><td>Against gross production it looks terrible in a PPO-heavy practice. Target ~98% against net, rolling 12 months</td></tr>
+            <tr><td><strong>Writeoff vs adjustment</strong></td><td>Writeoff is the contractual PPO discount; adjustment is discretionary (courtesy, discount, bad debt)</td><td>Conflating them is a classic bug. Writeoffs measure contract mix, adjustments measure discipline</td></tr>
+            <tr><td><strong>Case acceptance</strong></td><td>Share of diagnosed treatment the patient agrees to</td><td>Dollar-based and case-based give wildly different numbers. Dollar-based is more common and more manipulable</td></tr>
+            <tr><td><strong>Unscheduled treatment</strong></td><td>Treatment-planned procedures with no future appointment</td><td>The most actionable number in dental analytics &mdash; this is what Revenue IQ monetises</td></tr>
+            <tr><td><strong>Hygiene reappointment rate</strong></td><td>Hygiene visits ending with the next hygiene visit booked</td><td>Target 90%+. Highest-leverage retention metric in the practice</td></tr>
+            <tr><td><strong>Recall / recare</strong></td><td>The standing hygiene cadence, usually six-month</td><td>Interchangeable terms; recare is the modern one</td></tr>
+            <tr><td><strong>Active patient count</strong></td><td>Patients seen in a trailing window</td><td>18 vs 24 months changes the number materially, and vendors differ. Everything &ldquo;per active patient&rdquo; inherits this</td></tr>
+            <tr><td><strong>Chair utilisation</strong></td><td>Scheduled chair time &divide; available chair time</td><td>The denominator is the hard part: operatory count, provider schedules, block scheduling, holidays, all configured differently per PMS</td></tr>
+            <tr><td><strong>No-show vs broken</strong></td><td>Failed appointments vs failures plus short-notice cancellations</td><td>Practices care about lost chair time, better expressed in hours or dollars than counts</td></tr>
+            <tr><td><strong>AR aging</strong></td><td>Balances in 0&ndash;30 / 31&ndash;60 / 61&ndash;90 / 90+ buckets</td><td>Split patient AR from insurance AR &mdash; completely different workflows. Insurance AR past 90 days means unworked denials</td></tr>
+            <tr><td><strong>Overhead percentage</strong></td><td>Total expenses &divide; collections</td><td>Benchmarked ~60&ndash;65% for general practice. Needs accounting data the PMS does not hold &mdash; which is why PBN integrates QuickBooks</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <span class="lab">Benchmarks are folklore</span>
+        <p>The formulas above are reliable. The target ranges are widely repeated rules of thumb, not statistics, and vary by region, specialty and payer mix. PBN is one of the few companies actually positioned to validate them against a real dataset.</p>
+      </div>
+    </section>
+
+    <!-- ============ 15 ============ -->
+    <section id="rcm">
+      <div class="sec-head"><span class="num">15</span><h2>Revenue cycle</h2></div>
+
+      <p>The flow: verify eligibility &rarr; present treatment with an out-of-pocket estimate &rarr; perform the procedure &rarr; code it in CDT &rarr; submit an electronic claim with attachments through a clearinghouse &rarr; payer adjudicates &rarr; ERA returns &rarr; post the payment, post the contractual writeoff, bill the patient the remainder &rarr; work the denials.</p>
+
+      <h3>Why insurance verification is a product category</h3>
+      <p>Eligibility rides the X12 <code>270</code> inquiry and <code>271</code> response pair. The catch, and the entire reason this is a business: <strong>the dental 271 is thin.</strong> It reliably returns active or inactive, but frequently omits the frequency limitations, downgrade clauses and category percentages that actually determine what the practice gets paid. So verification products stack portal automation, document parsing and payer-specific rules on top of the 270/271. That is a good fit for LLMs, it is high-volume, it is expensive to do manually at ten to fifteen minutes per patient by phone, and it is measurable. Hence every vendor in this category selling it.</p>
+
+      <h3>The transaction set</h3>
+      <div class="scroll">
+        <table>
+          <thead><tr><th class="mono">X12</th><th>What it is</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">837D</td><td>Dental claim submission</td></tr>
+            <tr><td class="mono">835</td><td>Remittance advice &mdash; the machine-readable ERA</td></tr>
+            <tr><td class="mono">270 / 271</td><td>Eligibility inquiry and response</td></tr>
+            <tr><td class="mono">276 / 277</td><td>Claim status inquiry and response</td></tr>
+            <tr><td class="mono">278</td><td>Prior authorisation and referral</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>An <strong>EOB</strong> is the human-readable explanation of how a claim was adjudicated. An <strong>ERA</strong> is the 835 equivalent. Auto-posting an ERA into the ledger &mdash; correctly splitting insurance payment, contractual writeoff and patient responsibility per line &mdash; is one of the highest-value automations in dental, and where AI payment-posting products are competing.</p>
+
+      <h3>CDT codes</h3>
+      <p>The <strong>Code on Dental Procedures and Nomenclature</strong>, maintained by the ADA and mandated under HIPAA for dental procedures in standard electronic transactions. Format is <code>D</code> plus four digits, in series: D0100&ndash;D0999 diagnostic, D1000&ndash;D1999 preventive, D2000&ndash;D2999 restorative, D3000&ndash;D3999 endodontics, D4000&ndash;D4999 periodontics, D5000&ndash;D5899 removable prosthodontics, D6000&ndash;D6199 implants, D6200&ndash;D6999 fixed prosthodontics, D7000&ndash;D7999 oral surgery, D8000&ndash;D8999 orthodontics, D9000&ndash;D9999 adjunctive.</p>
+
+      <p>Two engineering consequences. <strong>The code set changes every January 1</strong> &mdash; new, deleted and revised codes &mdash; so fee schedules, mappings and analytics groupings need an annual migration path. And CDT is ADA-copyrighted and licensed; redistributing the full code set with descriptors requires a licence.</p>
+
+      <h3>The dental-specific twist</h3>
+      <p>A dental claim line often carries <strong>tooth number and surface</strong>, and is invalid without them. Universal numbering is 1&ndash;32 for permanent teeth, A&ndash;T for primary, plus supernumeraries and the international FDI and Palmer notations. That is a real data-modelling concern.</p>
+
+      <p><strong>Attachments</strong> are also distinctly dental: payers routinely require X-rays, perio charts and narratives before paying crowns, endo, perio surgery or implants. Getting an image out of the imaging system, onto the right claim, in the payer&rsquo;s accepted format is its own product category &mdash; Vyne Dental processes 40M+ attachments a year, and DentalXChange handles ~300M claims annually across ~1,400 payer connections.</p>
+
+      <h3>Plan mechanics that shape every dental product</h3>
+      <ul>
+        <li><strong>~82% of dental policies are PPOs</strong> (NADP). The dentist accepts a reduced allowed fee, typically 20&ndash;40% off their posted UCR fee, and may not balance-bill the patient the difference. That gap is the mandatory contractual writeoff.</li>
+        <li><strong>Annual maximums are mostly under $1,500</strong>, a figure essentially unchanged for decades. This single fact is why &ldquo;use your benefits before year-end&rdquo; campaigns exist in every patient-engagement product and why they work.</li>
+        <li><strong>Coverage tiers</strong> run roughly preventive 100%, basic 80%, major 50%, with $50&ndash;$100 deductibles and waiting periods on individual policies.</li>
+        <li><strong>Frequency limits</strong> (two cleanings a year, bitewings every 12 months, a crown every five to seven years per tooth), <strong>downgrade clauses</strong> (payer pays amalgam, you placed composite) and <strong>coordination of benefits</strong> for dual coverage are the three reasons an &ldquo;estimated patient portion&rdquo; is so often wrong.</li>
+      </ul>
+    </section>
+
+    <!-- ============ 16 ============ -->
+    <section id="regs">
+      <div class="sec-head"><span class="num">16</span><h2>HIPAA, TCPA, PCI</h2></div>
+
+      <h3>HIPAA &mdash; you are the business associate</h3>
+      <p>The dental practice is the covered entity. A vendor like PBN is a <strong>business associate</strong>: a person or entity performing functions on behalf of a covered entity involving creating, receiving, maintaining or transmitting protected health information. HHS explicitly names cloud service providers, IT vendors, billing services <em>and AI chatbots on patient portals</em> as examples.</p>
+
+      <p>In dental software, essentially everything you touch is PHI. Note especially that <strong>appointment metadata alone is PHI</strong> &mdash; &ldquo;Jane Smith, 2pm, root canal&rdquo; is a disclosure. And your subcontractors are business associates too, which means your cloud host, SMS gateway, transcription vendor and LLM provider all need to be under BAA.</p>
+
+      <p><strong>Business associates bear direct liability.</strong> OCR can fine you independently; the relationship with the covered entity is not a shield.</p>
+
+      <p><strong>Minimum necessary</strong> requires limiting use, disclosure and requests to what is needed for the purpose &mdash; internally, role-based access policies identifying which employees need which data. Note the sharp edge from section 12: Open Dental&rsquo;s API grants coarse permissions and bypasses the date restrictions the desktop app enforces, so minimum necessary is <em>your</em> implementation problem, not something the API enforces for you.</p>
+
+      <p>Architecturally that means encryption in transit and at rest, RBAC and per-tenant isolation, <strong>immutable audit logging of every PHI access</strong> (practices get audited and will ask you for it), a 60-day breach notification clock, no PHI in logs or error trackers or analytics pipelines, and careful handling of PHI in LLM prompts. SOC 2 Type II has become the de facto commercial requirement layered on top.</p>
+
+      <h3>TCPA &mdash; the one most likely to bite</h3>
+      <p>Implemented in 47 CFR &sect; 64.1200. It carries a private right of action with statutory damages of $500&ndash;$1,500 per message and class actions are routine.</p>
+
+      <ul>
+        <li><strong>Prior express written consent</strong> is required for advertising and telemarketing by automated system or prerecorded voice, authorising messages to a specified number, disclosing that consent is not a condition of purchase.</li>
+        <li><strong>Prior express consent</strong> (oral suffices) covers the <strong>healthcare exemption</strong>: appointment confirmations, wellness checkups, lab results and post-discharge follow-up, provided the messages comply with HIPAA privacy rules and stay within frequency caps of <strong>one per day and three per week per patient</strong>.</li>
+        <li><strong>Revocation</strong> by any reasonable method, expressly including STOP, QUIT, END, REVOKE, OPT OUT, CANCEL and UNSUBSCRIBE, honoured within <strong>ten business days</strong>.</li>
+      </ul>
+
+      <p>What that means in a product: keep per-patient, per-channel consent records with provenance and timestamp, because you will need to prove consent years later. Handle every one of those keywords at platform level across all campaign types, immediately rather than at day ten. Enforce frequency caps and quiet hours (8am&ndash;9pm local to the recipient) as platform guardrails, not office-toggleable settings. Then layer on CTIA guidelines and 10DLC carrier registration, because carriers will filter unregistered or high-complaint traffic regardless of what the TCPA permits.</p>
+
+      <h3>PCI DSS &mdash; scope reduction is the whole game</h3>
+      <p>Applies to anyone who stores, processes or transmits cardholder data <em>or could affect the security of the cardholder data environment</em> &mdash; a broad clause that catches more systems than teams expect. Current version is v4.x.</p>
+
+      <p>The design rules that shrink your scope from SAQ D to SAQ A or P2PE: use a hosted payment page or iframe so card data never posts through your server, use P2PE-validated terminals for card-present, store <strong>tokens only</strong>, never log PAN or CVV, enforce TLS 1.2+. A dental practice is essentially always merchant Level 4; a payment-facilitating software vendor can land much higher.</p>
+
+      <p>PCI is contractual, not statutory &mdash; enforcement flows through your acquirer and the card networks as fines, higher interchange or loss of processing, not through a regulator. Note that <strong>surcharging is governed separately</strong>, by card-network rules and a patchwork of state law, which is what PBN&rsquo;s ZeroPay compliance engine handles.</p>
+    </section>
+
+    <!-- ============ 17 ============ -->
+    <section id="competitors">
+      <div class="sec-head"><span class="num">17</span><h2>Competitors</h2></div>
+
+      <p>PBN sits in a category best described as <strong>practice operations platform</strong>: the convergence of four formerly separate markets &mdash; patient engagement, practice analytics, VoIP, and payments/RCM. Every serious player is now assembling all four.</p>
+
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr><th>Company</th><th>Shape</th><th>Scale / status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Weave</strong></td><td>Phone system first, then everything around it. Multi-vertical (dental, optometry, vet, medical)</td><td>FY2025 revenue $239M, +17%. <strong>Being taken private by Francisco Partners at ~$650M, announced Aug 2026</strong> &mdash; the most consequential recent event in the category</td></tr>
+            <tr><td><strong>Dental Intelligence</strong></td><td><strong>PBN&rsquo;s closest competitor.</strong> Same origin (analytics on PMS data), same expansion path. Built partly by acquiring LocalMed and Modento</td><td>10,000+ practices, 250+ employees. HIPAA + SOC 2 Type 2 + PCI-DSS. Covers Denticon and Fuse where PBN does not</td></tr>
+            <tr><td><strong>NexHealth</strong></td><td>Dual identity: patient-experience product <em>and</em> the Synchronizer universal API sold to other developers &mdash; a supplier to its own competitors</td><td>Reported ~$1B valuation. Open Dental publicly disputes its authorisation status</td></tr>
+            <tr><td><strong>RevenueWell</strong></td><td>Engagement plus a services business (SEO, PPC, websites, video) most competitors do not offer</td><td>11,200+ practices. Covers WinOMS for oral surgery</td></tr>
+            <tr><td><strong>Solutionreach</strong></td><td>The incumbent, founded 2000. Broadest integration claim in the market at 400+ systems &mdash; shallow but wide</td><td>50,000+ practices served. AI receptionist is &ldquo;Stella&rdquo;</td></tr>
+            <tr><td><strong>Adit</strong></td><td>The explicit all-in-one, one-bill challenger. Unusually deep RCM (payment posting, denial management)</td><td>5,000+ practices. Competes hard on price</td></tr>
+            <tr><td><strong>Flex Dental</strong></td><td><strong>Deliberately single-PMS</strong> &mdash; Open Dental only, as an authorised integration vendor, building deeper writeback than anyone multi-PMS can</td><td>3,500+ Open Dental practices. Any multi-PMS product gets compared to Flex on Open Dental accounts</td></tr>
+            <tr><td><strong>Yapi</strong></td><td>Forms and intake specialist since 2009. Now merged with DoctorLogic</td><td>Narrower than the platform players; strongest reputation in forms</td></tr>
+            <tr><td><strong>Lighthouse 360</strong></td><td><strong>Owned by Henry Schein One</strong> &mdash; the PMS vendor competing with its own ecosystem</td><td>11,000+ clients. Migration to Lighthouse 360+ in progress</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>How PBN argues against them, and where the argument is weak</h3>
+      <p>All nine comparison pages run one template: a constant PBN column (one platform, 600+ KPIs, 99.99% uptime, dental-specific support, transparent modular pricing from $249) against a competitor column populated with negative reviews scraped from G2, Capterra, Trustpilot and GetApp. The recurring attack lines are slow support, inaccurate reminders, shallow or uncustomisable reporting, sync failures, and price creep.</p>
+
+      <div class="note warn">
+        <span class="lab">Two flaws to know before you cite these pages</span>
+        <p>First, the template misapplies categories: Weave, RevenueWell, Yapi and Lighthouse 360 are all described as &ldquo;primarily an analytics tool,&rdquo; which is wrong &mdash; they are patient-engagement platforms. Dental Intel is the only one for which that label fits. Second, the Lighthouse 360 page treats it as a live competitor without acknowledging that Patterson discontinued it. Both read as unedited template fill and would not survive an informed buyer.</p>
+      </div>
+
+      <h3>Where AI is actually landing, 2025&ndash;26</h3>
+      <p>Three categories are now universal: AI receptionists (PBN, Dental Intel, RevenueWell, Solutionreach&rsquo;s Stella, Adit&rsquo;s AI Front Desk, Weave/TrueLark, CareStack&rsquo;s VoiceStack, plus pure-plays like Arini), call analytics, and automated insurance verification. The ADA HPI Q2 2026 economic report carries a special focus on AI usage and attitudes among dentists &mdash; worth downloading for adoption data.</p>
+
+      <p>One pattern worth stealing conceptually: <strong>Sikka ships four autonomy modes</strong> &mdash; Off (data only), Recommendation, Simulation (preview without live changes), and Full Self-Driving with guardrails. That progressive ladder is a good answer to &ldquo;how do we let AI write to the PMS without terrifying the practice.&rdquo; Pair it with human-in-the-loop by default on anything that writes money or PHI: verification results, claim edits and appointment writes should be reviewable, reversible and audit-logged, because HIPAA demands the trail and a wrong benefit breakdown becomes a billing dispute with a patient.</p>
+
+      <p><strong>Adjacent but not PBN&rsquo;s space:</strong> Overjet, Pearl and VideaHealth do radiographic AI &mdash; FDA-cleared medical device businesses with clinical validation studies and a completely different sales motion. Know them so you recognise them in a stack. Note that all three added voice documentation and RCM in 2025&ndash;26, walking into operations from the clinical side while PBN and Dental Intel walk toward clinical from the ops side. The middle is getting crowded. PBN already partners with Overjet &mdash; the Midtown Dental case study pairs Overjet&rsquo;s diagnosis with PBN&rsquo;s follow-through, and the dentist&rsquo;s line is the cleanest statement of the split: &ldquo;Overjet shows us where the patient needs care, and Practice by Numbers makes sure we act on it.&rdquo;</p>
+    </section>
+
+    <!-- ============ 18 ============ -->
+    <section id="path">
+      <div class="sec-head"><span class="num">18</span><h2>Five-week path</h2></div>
+
+      <p>Ordered so each phase gives you the vocabulary the next one needs. The sequence matters &mdash; product pages are much more legible once you know what an operatory and an unscheduled treatment plan are.</p>
+
+      <div class="phase">
+        <div class="phase-top"><span class="p-num">01</span><span class="p-name">Speak dental</span></div>
+        <div class="phase-time">Week 1 &middot; ~6 hours</div>
+        <ul>
+          <li>Read section 14 and 15 above until you can define production, collections, collection ratio, case acceptance, unscheduled treatment, hygiene reappointment rate and AR aging without looking.</li>
+          <li>Read <a href="https://www.nadp.org/dental-benefits-basics/">NADP Dental Benefits Basics</a> once, end to end. Plan mechanics in a single page.</li>
+          <li>Skim the CDT series structure at <a href="https://www.ada.org/publications/cdt">ada.org/publications/cdt</a>. You do not need to memorise codes, only the series map.</li>
+          <li>Read PBN&rsquo;s own <a href="https://practicenumbers.com/blog/the-complete-guide-to-dental-insurance-verification/">insurance verification guide</a> &mdash; it doubles as a workflow primer and as PBN&rsquo;s framing of the problem.</li>
+        </ul>
+        <p><strong>Checkpoint:</strong> explain to someone why a practice&rsquo;s collection ratio can look terrible while the practice is perfectly healthy.</p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-top"><span class="p-num">02</span><span class="p-name">Understand the substrate</span></div>
+        <div class="phase-time">Week 2 &middot; ~8 hours</div>
+        <ul>
+          <li>Read the <a href="https://www.opendental.com/site/apispecification.html">Open Dental API specification</a>, then <a href="https://www.opendental.com/site/apipermissions.html">permissions</a>, then the <a href="https://opendental.com/manual/econnector.html">eConnector manual</a>. This is the single highest-value reading in the whole list &mdash; it is the clearest available window into the actual shape of dental data and the on-premise agent pattern.</li>
+          <li>Skim the <a href="https://docs.nexhealth.com/">NexHealth API reference</a> for a well-designed normalised dental data model: institutions &rarr; locations &rarr; operatories &rarr; providers.</li>
+          <li>Read the <a href="https://www.henryscheinone.com/dental-solutions/api-exchange">Henry Schein One API Exchange</a> page to see what a gated vendor programme looks like.</li>
+          <li>Then re-read section 10 above. The sync intervals and writeback behaviour will mean something concrete now.</li>
+        </ul>
+        <p><strong>Checkpoint:</strong> sketch the sync architecture for a practice on on-premise Eaglesoft, and name three ways it breaks in the field.</p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-top"><span class="p-num">03</span><span class="p-name">Walk the product</span></div>
+        <div class="phase-time">Week 3 &middot; ~8 hours</div>
+        <ul>
+          <li>Work suite by suite through <a href="https://practicenumbers.com/">practicenumbers.com</a>, in the order of sections 05 to 09 above. For each module, write one sentence on the problem it solves and one on what it writes back to the PMS.</li>
+          <li>Read the whole <a href="https://help.practicenumbers.com/en/">help center</a>. This is where the product actually lives &mdash; the marketing site describes intent, the help center describes behaviour. Prioritise the PMS write-back settings article, the Dentrix Ascend integration FAQ, and &ldquo;Out of Sync? How to Get Reconnected.&rdquo;</li>
+          <li>Sign up for <a href="https://practicenumbers.com/pbn-learn/">PbN Learn</a> &mdash; free, 20+ courses, built for staff onboarding. It teaches the product the way PBN&rsquo;s own customers are taught it, which is a different and useful angle from the sales site.</li>
+          <li>Read the <a href="https://practicenumbers.com/pricing/">pricing page</a> and map every module in section 04 to its tier. Packaging tells you what PBN believes is valuable.</li>
+        </ul>
+        <p><strong>Checkpoint:</strong> given a two-doctor, eight-operatory practice on Dentrix paying for four other vendors, name the tier you would quote and which three modules replace which vendors.</p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-top"><span class="p-num">04</span><span class="p-name">Hear the customer</span></div>
+        <div class="phase-time">Week 4 &middot; ~5 hours</div>
+        <ul>
+          <li>Read all seven <a href="https://practicenumbers.com/use-cases/dentists/">use-case pages</a>. Each one is a persona&rsquo;s pain list written by people who talk to them daily.</li>
+          <li>Read all seven <a href="https://practicenumbers.com/case-studies/">case studies</a>, starting with Atlanta Dental Center (the consolidation thesis), then BayCove (30 hours a week saved on verification, payment follow-up and form scanning), then Midtown Dental (the Overjet pairing).</li>
+          <li>Read the <a href="https://practicenumbers.com/company/customer-wall/">customer wall</a> for the texture of what people actually praise. Watch how often support comes up.</li>
+          <li>Listen to two or three episodes of the <a href="https://practicenumbers.com/podcast/">Practice Pulse</a> podcast, hosted by co-founder Dr. Agarwal. It is the best available source on how PBN thinks about the industry rather than about its own features.</li>
+        </ul>
+        <p><strong>Checkpoint:</strong> describe an office manager&rsquo;s Monday morning, and where PBN touches it four separate times.</p>
+      </div>
+
+      <div class="phase">
+        <div class="phase-top"><span class="p-num">05</span><span class="p-name">Situate it</span></div>
+        <div class="phase-time">Week 5 &middot; ~6 hours</div>
+        <ul>
+          <li>Read three <a href="https://practicenumbers.com/compare/practice-by-numbers-vs-dental-intel/">comparison pages</a> &mdash; Dental Intel, Weave, NexHealth &mdash; then go read those three companies&rsquo; own sites and note where PBN&rsquo;s characterisation is fair and where it is not.</li>
+          <li>Read sections 13, 16 and 17 above properly, with the HHS pages on <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/business-associates/index.html">business associates</a> and <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/minimum-necessary-requirement/index.html">minimum necessary</a>, plus the healthcare-exemption and revocation paragraphs of <a href="https://www.ecfr.gov/current/title-47/chapter-I/subchapter-B/part-64/subpart-L/section-64.1200">47 CFR 64.1200</a> read directly.</li>
+          <li>Download the <a href="https://www.ada.org/resources/research/health-policy-institute/dental-care-market/state-of-the-us-dental-economy">ADA HPI State of the US Dental Economy, Q2 2026</a> for its AI special focus, and Dental Intelligence&rsquo;s State of Dentistry report for competitor benchmarks and their standardised KPI definitions.</li>
+        </ul>
+        <p><strong>Checkpoint:</strong> answer the nineteen questions in the next section, or know which ones you still need PBN to answer.</p>
+      </div>
+    </section>
+
+    <!-- ============ 19 ============ -->
+    <section id="questions">
+      <div class="sec-head"><span class="num">19</span><h2>Questions to ask PBN</h2></div>
+
+      <p>These are the things the public record cannot tell you. Ordered roughly by how much they would change your understanding.</p>
+
+      <h4>Architecture</h4>
+      <ul>
+        <li>What is the on-premise connector actually called, and what are its system requirements, ports and firewall assumptions? Is it one agent per PMS or one agent with adapters?</li>
+        <li>For on-premise Dentrix, does integration go through Henry Schein One API Exchange, a local DLL, or direct database access &mdash; and is PBN a certified API Exchange vendor?</li>
+        <li>What is the Eaglesoft path? ODBC against SQL Anywhere, or something sanctioned by Patterson?</li>
+        <li>How is fleet health monitored across thousands of agents, and what is the current rate of practices out of sync for more than 24 hours?</li>
+        <li>What are the sync intervals for Dentrix, Eaglesoft, Open Dental, Practice-Web and Curve? Only Dentrix Ascend figures are published.</li>
+        <li>How are writeback conflicts resolved when a change happens in both systems between cycles?</li>
+      </ul>
+
+      <h4>Compliance</h4>
+      <ul>
+        <li>Is there a SOC 2 report? Type 1 or 2, which auditor, what date, and can it be shared under NDA?</li>
+        <li>Who are the subprocessors, specifically for SMS, voice transcription and LLM inference &mdash; and is each under BAA with no training on PHI?</li>
+        <li>What is the data retention policy, and what happens to PHI on contract termination?</li>
+        <li>How are TCPA frequency caps and STOP handling enforced &mdash; platform-level guardrails, or per-practice settings an office can disable?</li>
+        <li>Is penetration testing done, by whom, and how often?</li>
+      </ul>
+
+      <h4>Product and roadmap</h4>
+      <ul>
+        <li>Why no Denticon or CareStack integration, given the DSO positioning? Is it on the roadmap?</li>
+        <li>What are the actual call-volume limits per tier for AI Receptionist and Call AI?</li>
+        <li>How many payers does insurance verification cover, and which are real-time 270/271 versus portal automation?</li>
+        <li>Where does the 600-vs-400 KPI count actually land, and is there a published KPI definition dictionary? DSO benchmarking makes this a contractual question.</li>
+        <li>What are the per-tier prices, add-on prices, onboarding fees and SMS limits?</li>
+      </ul>
+
+      <h4>Business</h4>
+      <ul>
+        <li>Is the company bootstrapped? Nothing in Crunchbase or elsewhere shows a round, but absence is not confirmation.</li>
+        <li>What is the split of revenue and logo count between single-location, multi-location and DSO?</li>
+        <li>How much of the base is on the payments product, and what share of revenue does it represent? Embedded payments economics usually reshape a company&rsquo;s incentives.</li>
+      </ul>
+    </section>
+
+    <!-- ============ 20 ============ -->
+    <section id="glossary">
+      <div class="sec-head"><span class="num">20</span><h2>Glossary</h2></div>
+
+      <dl class="gloss">
+        <div><dt>PMS</dt><dd>Practice management system. The system of record: schedule, chart, ledger, claims. Dentrix, Eaglesoft, Open Dental and others.</dd></div>
+        <div><dt>Operatory</dt><dd>A treatment room, or the chair in it. The scheduling unit in dentistry, the way a room is in a hotel.</dd></div>
+        <div><dt>DSO</dt><dd>Dental Service Organization. Provides all non-clinical business functions to practices under a management services agreement.</dd></div>
+        <div><dt>Recall / recare</dt><dd>The standing hygiene cadence, usually six-month. Recare is the modern term.</dd></div>
+        <div><dt>Reappointment</dt><dd>Booking the next visit before the patient leaves. The highest-leverage retention behaviour in a practice.</dd></div>
+        <div><dt>Unscheduled treatment</dt><dd>Treatment-planned procedures with no appointment. A concrete, addressable revenue queue.</dd></div>
+        <div><dt>Case acceptance</dt><dd>Share of diagnosed treatment the patient agrees to. Ask whether it is dollar-based or case-based.</dd></div>
+        <div><dt>Production / collections</dt><dd>Dentistry performed at full fee, versus cash actually received. Not the same procedures in the same period.</dd></div>
+        <div><dt>Writeoff</dt><dd>The mandatory contractual difference between a practice&rsquo;s posted fee and the PPO allowed fee. Distinct from a discretionary adjustment.</dd></div>
+        <div><dt>UCR fee schedule</dt><dd>Usual, customary and reasonable. The practice&rsquo;s own posted fee per procedure code, before any payer discount.</dd></div>
+        <div><dt>CDT</dt><dd>Code on Dental Procedures and Nomenclature. ADA-maintained, HIPAA-mandated, changes every January 1.</dd></div>
+        <div><dt>270 / 271</dt><dd>The X12 eligibility inquiry and response. The dental 271 is notoriously thin, which is why verification is a product.</dd></div>
+        <div><dt>837D / 835</dt><dd>Dental claim submission, and the remittance advice that comes back.</dd></div>
+        <div><dt>EOB / ERA</dt><dd>Explanation of Benefits, human-readable. Electronic Remittance Advice, the machine-readable 835.</dd></div>
+        <div><dt>Clearinghouse</dt><dd>Sits between practice and payers, normalising formats, scrubbing claims, routing attachments. DentalXChange and Vyne dominate dental.</dd></div>
+        <div><dt>Attachment</dt><dd>X-rays, perio charts or narratives a payer requires before paying. A dental-specific problem and its own product category.</dd></div>
+        <div><dt>PPO / FFS / DHMO</dt><dd>Contracted discount for network volume (~82% of policies); no discount, patient pays more; capitated monthly per-member payment.</dd></div>
+        <div><dt>Annual maximum</dt><dd>The payer&rsquo;s yearly cap, mostly under $1,500 and unchanged for decades. The reason year-end benefit campaigns work.</dd></div>
+        <div><dt>Downgrade clause</dt><dd>The payer pays for the cheaper material than the one placed. A frequent source of wrong patient estimates.</dd></div>
+        <div><dt>Frankenstack</dt><dd>PBN&rsquo;s term for the six-to-eight disconnected vendor subscriptions a typical practice accumulates. The whole pitch is built on it.</dd></div>
+        <div><dt>PHI / BAA</dt><dd>Protected health information, and the business associate agreement a vendor must sign to handle it. Appointment metadata alone is PHI.</dd></div>
+        <div><dt>eConnector</dt><dd>Open Dental&rsquo;s Windows service on the practice server. The reference example of the on-premise sync agent pattern.</dd></div>
+      </dl>
+    </section>
+
+    <!-- ============ 21 ============ -->
+    <section id="sources">
+      <div class="sec-head"><span class="num">21</span><h2>Sources</h2></div>
+
+      <h4>Primary &mdash; PBN</h4>
+      <ul class="sources">
+        <li><a href="https://practicenumbers.com/">practicenumbers.com</a> &mdash; solutions, use cases, pricing, compare, company pages</li>
+        <li><a href="https://help.practicenumbers.com/en/">help.practicenumbers.com</a> &mdash; the integration and sync detail; more accurate than the marketing site</li>
+        <li><a href="https://practicenumbers.com/blog/">practicenumbers.com/blog</a> &mdash; note the PMS Love and Eaglesoft Expert series, which are PMS-comparison SEO but genuinely informative</li>
+        <li><a href="https://practicenumbers.com/pbn-learn/">PbN Learn</a>, <a href="https://practicenumbers.com/podcast/">Practice Pulse podcast</a>, <a href="https://pbnpresents.practicenumbers.com/">PbN Presents</a>, <a href="https://practicenumbers.com/case-studies/">case studies</a></li>
+      </ul>
+
+      <h4>Integration and data model</h4>
+      <ul class="sources">
+        <li><a href="https://www.opendental.com/site/apispecification.html">Open Dental API spec</a>, <a href="https://www.opendental.com/site/apisetup.html">setup</a>, <a href="https://www.opendental.com/site/apipermissions.html">permissions</a>, <a href="https://opendental.com/manual/econnector.html">eConnector</a></li>
+        <li><a href="https://docs.nexhealth.com/">NexHealth Synchronizer API docs</a></li>
+        <li><a href="https://www.henryscheinone.com/dental-solutions/api-exchange">Henry Schein One API Exchange</a></li>
+      </ul>
+
+      <h4>Domain and regulatory</h4>
+      <ul class="sources">
+        <li><a href="https://www.ada.org/publications/cdt">ADA CDT</a> &middot; <a href="https://www.nadp.org/dental-benefits-basics/">NADP Dental Benefits Basics</a></li>
+        <li><a href="https://www.ada.org/resources/research/health-policy-institute/dental-practice-research">ADA HPI dental practice research</a> &middot; <a href="https://www.theadso.org/">ADSO</a></li>
+        <li><a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/business-associates/index.html">HHS business associates</a> &middot; <a href="https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/minimum-necessary-requirement/index.html">HHS minimum necessary</a></li>
+        <li><a href="https://www.ecfr.gov/current/title-47/chapter-I/subchapter-B/part-64/subpart-L/section-64.1200">47 CFR 64.1200 (TCPA)</a> &middot; <a href="https://www.pcisecuritystandards.org/standards/pci-dss/">PCI DSS</a></li>
+      </ul>
+
+      <h4>Third-party on PBN</h4>
+      <ul class="sources">
+        <li><a href="https://www.g2.com/products/practice-by-numbers/reviews">G2</a> &mdash; 4.9/5 across 104 reviews; implementation under a month, ROI in four</li>
+        <li><a href="https://www.crunchbase.com/organization/practice-by-numbers">Crunchbase</a> &mdash; no funding rounds or investors listed</li>
+      </ul>
+
+      <div class="note warn">
+        <span class="lab">Research limitations worth knowing</span>
+        <p>Web search was unavailable during this research, so external coverage came only from directly fetched pages. Capterra&rsquo;s PBN listing, LinkedIn company data and the Drata trust center were all unreachable. No funding announcement, acquisition or trade-press coverage of PBN was found in any accessible source &mdash; which suggests the company is bootstrapped, but that is an inference from absence, not a verified fact.</p>
+      </div>
+
+      <p class="foot">Practice by Numbers Field Guide &middot; compiled September 2026 for onboarding at Enosis. Unsourced PBN marketing figures are labelled as such throughout; verify before repeating them externally. Benchmark ranges in section 14 are industry rules of thumb, not statistics.</p>
+    </section>
+  </main>
+</div>
+</body>
+</html>
